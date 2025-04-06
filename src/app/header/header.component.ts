@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+import { MovieService } from '../services/movie.service';
 
 
 
@@ -10,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  movieService = inject(MovieService)
   searchInput = ''
 
   search(){

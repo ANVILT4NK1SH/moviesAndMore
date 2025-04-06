@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-display-list',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './display-list.component.css'
 })
 export class DisplayListComponent {
-
+  moviesService = inject(MovieService)
+  movies = this.moviesService.movies
+  
 }

@@ -1,22 +1,5 @@
 <section>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
-  <p>Display list here</p>
+  @for (m of movies(); track m.title) {
+    <p>{{m.title}}</p>
+  }
 </section>
