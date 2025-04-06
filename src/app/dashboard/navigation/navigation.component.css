@@ -1,0 +1,42 @@
+.main{
+  display: flex;
+  height: 100%;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url('/dvdStack.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 120px;
+  padding: 5px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+  background: none;
+  height: 10px;
+  
+}
+
+button{
+  padding: .5em;
+  margin: 2px;
+  background-color: rgba(18, 18, 18, 0.914);
+  color: rgb(255, 200, 98);
+  width: 100%;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.794);
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.sidebar-content{
+  height: 100%;
+}

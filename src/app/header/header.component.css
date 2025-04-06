@@ -1,0 +1,44 @@
+section {
+  position: sticky;
+  top: 0;
+  background-image: url('videoStore.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-self: center;
+  height: 75px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#header-container{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.324);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#video-img{
+  width: 20px;
+  cursor: pointer;
+}
+
+h1{
+  color: rgb(255, 200, 98);
+  text-shadow: 2px 1px black;
+  text-align: center;
+}
+
+input{
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.794)
+}

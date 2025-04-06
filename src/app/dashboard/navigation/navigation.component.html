@@ -1,0 +1,22 @@
+<!-- sidebar.component.html -->
+<div class="main">
+  <div class="sidebar" [class.collapsed]="isCollapsed()">
+    <div class="sidebar-header">
+      <button (click)="toggleSidebar()" class="toggle-btn">
+        {{ isCollapsed() ? "→" : "←" }}
+      </button>
+    </div>
+
+    <!-- Sidebar content -->
+    @if (!isCollapsed()) {
+    <div class="sidebar-content">
+      <ul>
+        <li><button class="popular-btn"(click)="popularClickHandler()">Popular</button></li>
+        <li><button class="watchlist-btn">Watchlist</button></li>
+        <li><button class="favorites-btn" >Favorites</button></li>
+      </ul>
+    </div>
+    }
+  </div>
+  <app-display-list />
+</div>
