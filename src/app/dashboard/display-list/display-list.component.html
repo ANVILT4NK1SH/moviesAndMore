@@ -1,5 +1,37 @@
+<h2>{{ listTitle() }}</h2>
 <section>
-  @for (m of movies(); track m.title) {
-    <p>{{m.title}}</p>
+  <app-movie-details [style.display]="isComponentVisible ? 'flex' : 'none'"></app-movie-details>
+  @for (m of movies(); track m.id) {
+  <div
+    class="card"
+    style="background-image: url('https://image.tmdb.org/t/p/w500{{m.poster_path}}');"
+    (click)="cardClickHandler(m)"
+  >
+    <div class="button-container">
+      <p>{{ m.title }}</p>
+      @for (f of favsArray(); track f.id) { 
+        @if (f.id === m.id) {
+        <span>
+          <button class="is-in-list" (click)  ="removeFavoriteBtnHandler(m)">
+            - Favorites
+          </button>
+        </span>
+      }@else {<span>
+        <button class="add-to-favorites-btn" (click)="addFavoriteBtnHandler(m)">
+          + Favorites
+        </button> </span
+      >} }@empty {<span>
+        <button class="add-to-favorite-btn" (click)="addFavoriteBtnHandler(m)">
+          + Favorites
+        </button> </span
+      >}
+
+      <span>
+        <button class="add-to-watchlist-btn">+ Watchlist</button>
+      </span>
+    </div>
+  </div>
+  } @empty {
+  <p>No Results!</p>
   }
 </section>

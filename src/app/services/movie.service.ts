@@ -13,14 +13,40 @@ export class MovieService {
 
   private http = inject(HttpClient);
 
-  movies = signal<any>([]);
+  listTitle = signal<string>('');
+
+  movies = signal<any[]>([]);
+
+  favorites = signal<any[]>([]);
+
+  watchlist = signal<any[]>([]);
+
+  movie = signal<any>({});
+
+  addToFavorites(data: {}) {
+    this.favorites.update((current) => [...current, data]);  
+  }
+
+  addToWatchlist(data: {}) {
+    this.watchlist.update(current => [...current, data])
+  }
 
   searchMovies(query: string) {
+    this.listTitle.set(`Search: ${query}`);
+
     const url = `${this.baseUrl}/search/movie?api_key=${this.key}&query=${query}`;
-    return this.http.get(url);
+    this.http.get(url).subscribe(
+      (data: any) => {
+        this.movies.set(data.results);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   getPopularMovies() {
+    this.listTitle.set('Popular Movies');
     const url = `${this.baseUrl}/movie/popular?api_key=${this.key}&language=en-US&page=1`;
 
     this.http.get(url).subscribe(
@@ -31,7 +57,6 @@ export class MovieService {
         console.log(error);
       }
     );
-
   }
 
   // Obserable.subscribe((data) => {},(error) => {}, () => {complete (mostly used for observables that end, like from files or timers)})

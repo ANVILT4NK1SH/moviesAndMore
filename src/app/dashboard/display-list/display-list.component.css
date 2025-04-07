@@ -1,4 +1,63 @@
+h2{
+  text-align: center;
+  padding: 3px;
+  margin-top: 10px;
+}
+
 section{
+  display: flex;
   padding: .5em;
   margin: .5em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+  height: 200px;
+  width: 180px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container{
+  background-color: rgba(0, 0, 0, 0.682);
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+button {
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 2px 3px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+button:hover{
+  scale: 1.1;
+}
+
+.is-in-list{
+  background-color: red;
+}
+
+
+p{
+  text-align: center;
+  white-space: normal;
+  width: 100%;
+  font-size: xx-small;
+  font-weight: bold;
 }

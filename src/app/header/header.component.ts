@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   search(){
     if(this.searchInput.trim()) {
-      
+      this.movieService.searchMovies(this.searchInput)
     }
   }
 }

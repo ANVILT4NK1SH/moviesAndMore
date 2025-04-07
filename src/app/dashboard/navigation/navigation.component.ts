@@ -1,11 +1,10 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { DisplayListComponent } from '../display-list/display-list.component';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-navigation',
-  imports: [SharedModule, DisplayListComponent],
+  imports: [SharedModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
 })
