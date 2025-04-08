@@ -1,0 +1,21 @@
+<div
+    class="card"
+    style="background-image: url('https://image.tmdb.org/t/p/w500{{movie()?.poster_path}}');"
+    
+  >
+    <button (click)="cardClickHandler()">MovieDetails</button>
+    <div class="button-container">
+      <p>{{ movie()?.title }}</p>
+       
+        
+        <span><button class="add-to-favorites-btn">
+          + Favorites
+        </button> </span>
+
+        <app-movie-details [style.display]="isComponentVisible() ? 'block' : 'none' " [movie]="movie()" (close)="hideComponent()"/>
+      <span>
+        <button class="add-to-watchlist-btn">+ Watchlist</button>
+      </span>
+      
+    </div>
+  </div>
