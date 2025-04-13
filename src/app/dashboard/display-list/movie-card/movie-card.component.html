@@ -4,15 +4,17 @@
     
   >
     <button (click)="cardClickHandler()">MovieDetails</button>
+    <app-movie-details [style.display]="isComponentVisible() ? 'block' : 'none' " [movie]="movie()" (close)="hideComponent()"/>
+
     <div class="button-container">
       <p>{{ movie()?.title }}</p>
-       
-        
-        <span><button class="add-to-favorites-btn">
-          + Favorites
-        </button> </span>
-
-        <app-movie-details [style.display]="isComponentVisible() ? 'block' : 'none' " [movie]="movie()" (close)="hideComponent()"/>
+      
+      
+      <span><button (click)="toggleFavorite()" [style.background-color]="isFav() ? 'green' : 'red'">
+        {{isFav()? 'Add Favorite' : 'Remove Favorite'}}
+      </button> </span>
+      
+      
       <span>
         <button class="add-to-watchlist-btn">+ Watchlist</button>
       </span>

@@ -17,13 +17,10 @@ export class MovieService {
 
   movies = signal<any[]>([]);
 
-  favorites = signal<any[]>([]);
+  
 
   watchlist = signal<any[]>([]);
 
-  addToFavorites(data: {}) {
-    this.favorites.update((current) => [...current, data]);  
-  }
 
   addToWatchlist(data: {}) {
     this.watchlist.update(current => [...current, data])
