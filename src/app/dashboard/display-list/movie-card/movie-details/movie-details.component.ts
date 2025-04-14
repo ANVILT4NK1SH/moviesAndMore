@@ -1,13 +1,12 @@
 import {
   Component,
-  EventEmitter,
   inject,
   input,
   output,
   signal,
 } from '@angular/core';
-import { MovieService } from '../../../shared/services/movie.service';
-import { Movie } from '../../../shared/models/movie.model';
+import { MovieService } from '../../../../shared/services/movie.service';
+import { Movie } from '../../../../shared/models/movie.model';
 
 @Component({
   selector: 'app-movie-details',

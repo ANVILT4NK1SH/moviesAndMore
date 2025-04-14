@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationComponent } from "../header/navigation/navigation.component";
+import { NavigationComponent } from "./navigation/navigation.component";
 import { DisplayListComponent } from "./display-list/display-list.component";
 
 @Component({
