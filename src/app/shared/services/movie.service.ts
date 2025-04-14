@@ -17,13 +17,13 @@ export class MovieService {
 
   movies = signal<any[]>([]);
 
-  
+  // Signal to track the current view (e.g., 'popular', 'favorites')
+  currentView = signal<'popular' | 'favorites' | 'watchlist'>('popular');
 
   watchlist = signal<any[]>([]);
 
-
   addToWatchlist(data: {}) {
-    this.watchlist.update(current => [...current, data])
+    this.watchlist.update((current) => [...current, data]);
   }
 
   searchMovies(query: string) {
@@ -53,6 +53,4 @@ export class MovieService {
       }
     );
   }
-
-  // Obserable.subscribe((data) => {},(error) => {}, () => {complete (mostly used for observables that end, like from files or timers)})
 }

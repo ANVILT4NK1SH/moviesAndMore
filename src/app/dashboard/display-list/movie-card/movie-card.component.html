@@ -1,23 +1,37 @@
+<!-- src/app/components/movie-card/movie-card.component.html -->
 <div
-    class="card"
-    style="background-image: url('https://image.tmdb.org/t/p/w500{{movie()?.poster_path}}');"
-    
-  >
-    <button (click)="cardClickHandler()">MovieDetails</button>
-    <app-movie-details [style.display]="isComponentVisible() ? 'block' : 'none' " [movie]="movie()" (close)="hideComponent()"/>
+  class="card"
+  style="background-image: url('https://image.tmdb.org/t/p/w500{{ movie().poster_path }}');"
+>
+  <!-- Button to show movie details -->
+  <button (click)="movieDetailsHandler()">Movie Details</button>
 
-    <div class="button-container">
-      <p>{{ movie()?.title }}</p>
-      
-      
-      <span><button (click)="toggleFavorite()" [style.background-color]="isFav() ? 'green' : 'red'">
-        {{isFav()? 'Add Favorite' : 'Remove Favorite'}}
-      </button> </span>
-      
-      
-      <span>
-        <button class="add-to-watchlist-btn">+ Watchlist</button>
-      </span>
-      
-    </div>
+  <!-- Movie details component, shown/hidden based on isComponentVisible -->
+  <app-movie-details
+    [style.display]="isComponentVisible() ? 'block' : 'none'"
+    [movie]="movie()"
+    (close)="hideComponent()"
+  />
+
+  <!-- Container for title and action buttons -->
+  <div class="button-container">
+    <!-- Movie title -->
+    <p>{{ movie().title }}</p>
+
+    <!-- Favorites button with dynamic background and text -->
+    <span>
+      <button
+        (click)="toggleFavorite()"
+        [style.background-color]="isFav() ? 'red' : 'green'"
+        [attr.aria-label]="isFav() ? 'Remove from favorites' : 'Add to favorites'"
+      >
+        {{ isFav() ? '-Favorite' : '+Favorite' }}
+      </button>
+    </span>
+
+    <!-- Watchlist button (placeholder, not implemented) -->
+    <span>
+      <button class="add-to-watchlist-btn">+ Watchlist</button>
+    </span>
   </div>
+</div>

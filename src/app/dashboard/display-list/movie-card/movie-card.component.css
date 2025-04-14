@@ -1,4 +1,4 @@
-.card{
+.card {
   height: 200px;
   width: 180px;
   background-position: center;
@@ -12,12 +12,28 @@
   border-radius: 5px;
 }
 
-.button-container{
+
+.button-container {
   background-color: rgba(0, 0, 0, 0.682);
   padding: 5px;
   border-radius: 5px;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
+p {
+  text-align: center;
+  white-space: normal;
+  width: 100%;
+  font-size: xx-small;
+  font-weight: bold;
+  color: whitesmoke;
+  margin: 0 0 5px 0;
+}
+
 
 button {
   background-color: green;
@@ -34,22 +50,15 @@ button {
 }
 
 
-button:hover{
-  transform: scale(1.1);  
-}
-
-.is-in-list{
-  background-color: red;
+button:hover {
+  transform: scale(1.1);
 }
 
 
-p{
-  text-align: center;
-  white-space: normal;
-  width: 100%;
-  font-size: xx-small;
-  font-weight: bold;
+.add-to-watchlist-btn {
+  background-color: green;
 }
+
 
 app-movie-details {
   position: fixed;

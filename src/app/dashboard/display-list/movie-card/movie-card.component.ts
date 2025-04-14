@@ -1,37 +1,48 @@
-import { Component, computed, effect, inject, input, signal } from '@angular/core';
+// src/app/components/movie-card/movie-card.component.ts
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { Movie } from '../../../shared/models/movie.model';
-import { MovieService } from '../../../services/movie.service';
-import { MovieDetailsComponent } from "../movie-details/movie-details.component";
-import { FavoritesService } from '../../../services/favorites.service';
+import { FavoritesService } from '../../../shared/services/favorites.service';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
+// Define the component as standalone with imports and references to template/styles
 @Component({
   selector: 'app-movie-card',
   imports: [MovieDetailsComponent],
   templateUrl: './movie-card.component.html',
-  styleUrl: './movie-card.component.css',
+  styleUrls: ['./movie-card.component.css'],
 })
 export class MovieCardComponent {
-  movie = input<Movie>();
-  movieService = inject(MovieService);
+  // Define the movie input as required to ensure it’s always provided
+  movie = input.required<Movie>();
+
+  // Inject the FavoritesService
   private favsService = inject(FavoritesService);
 
-  isFav = computed(() => this.favsService.isFavorite(this.movie()!.id));
+  // Compute whether the current movie is favorited
+  isFav = computed(() => this.favsService.isFavorite(this.movie().id)());
 
+  // Signal to control visibility of the MovieDetailsComponent
   isComponentVisible = signal(false);
 
-  cardClickHandler() {
+  // Handler to show the movie details component on card click
+  movieDetailsHandler() {
     this.isComponentVisible.set(true);
   }
+
+  // Handler to hide the movie details component
   hideComponent() {
     this.isComponentVisible.set(false);
   }
 
+  // Toggle the favorite status of the movie
   toggleFavorite() {
     const movie = this.movie();
     if (this.isFav()) {
-      this.favsService.removeFavorite(movie!.id);
-    }else{
-      this.favsService.addFavorite(movie!)
+      // Remove the movie from favorites if it’s currently favorited
+      this.favsService.removeFavorite(movie.id);
+    } else {
+      // Add the movie to favorites if it’s not favorited
+      this.favsService.addFavorite(movie);
     }
   }
 }
