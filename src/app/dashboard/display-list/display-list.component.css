@@ -1,0 +1,15 @@
+h2{
+  text-align: center;
+  padding: 3px;
+  margin-top: 10px;
+}
+
+section{
+  display: flex;
+  padding: .5em;
+  margin: .5em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+

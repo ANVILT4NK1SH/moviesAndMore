@@ -1,0 +1,8 @@
+<h2>{{ listTitle() }}</h2>
+<section>
+  @for (m of movies(); track m.id) {
+    <app-movie-card [movie]="m"/>
+  } @empty {
+  <p>No Results!</p>
+  }
+</section>
