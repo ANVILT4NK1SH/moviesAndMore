@@ -9,3 +9,24 @@ body{
   background-color: black;
   color: aliceblue;
 }
+
+button{
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 2px 3px;
+  color: whitesmoke;
+  cursor: pointer;
+  box-shadow: 2px 1px rgba(0, 0, 0, 0.774);
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.danger-btn{
+  background-color: red;
+}

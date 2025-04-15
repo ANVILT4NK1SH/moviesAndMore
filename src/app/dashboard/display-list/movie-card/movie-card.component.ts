@@ -22,8 +22,6 @@ export class MovieCardComponent {
   // What computed() Does:
   // It defines a read-only signal whose value is computed based on other signals or values.
   // The computation is reactive: if any signal used in the computation changes, the computed signal automatically recalculates and updates.
-  // It caches the computed value, only recalculating when dependencies change, improving performance.
-  // It is lazy: the computation runs only when the computed signal's value is read.
   isFav = computed(() => this.favsService.isFavorite(this.movie().id)());
 
   // Signal to control visibility of the MovieDetailsComponent

@@ -1,9 +1,7 @@
-
 import { Component, computed, effect, inject, signal } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../shared/modules/shared.module';
 import { MovieService } from '../../shared/services/movie.service';
 import { FavoritesService } from '../../shared/services/favorites.service';
-
 
 @Component({
   selector: 'app-navigation',
@@ -54,7 +52,7 @@ export class NavigationComponent {
     this.movieService.listTitle.set('Favorites');
   }
 
-  // Placeholder for watchlist handler
+  // Handler for Watchlist button
   watchlistClickHandler() {
     this.currentView.set('watchlist');
     this.movieService.listTitle.set('Watchlist');

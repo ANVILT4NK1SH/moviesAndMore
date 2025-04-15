@@ -1,13 +1,20 @@
 <section>
-  <div id="header-container">    
-      <h1>Movies and More</h1> 
-      <input type="text" placeholder="Search for movie..." [(ngModel)]="searchInput" (ngModelChange)="search()">  
-      <!--Possibly adding buttons later if I add games, books, and/or music-->
-      <!-- <div id="button-container">
+  <div id="header-container">
+    <h1>Movies and More</h1>
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search for movie..."
+        [(ngModel)]="searchInput"
+        (ngModelChange)="search()"
+      />
+      <button (click)="clearBtnHandler()">clear</button>
+    </div>
+    <!--Possibly adding buttons later if I add games, books, and/or music-->
+    <!-- <div id="button-container">
 
         <img id="video-img" src="https://cdn-icons-png.flaticon.com/128/6718/6718015.png" alt="Vhs icons created by Freepik - Flaticon">
         
       </div> -->
   </div>
-
 </section>
