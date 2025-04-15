@@ -1,0 +1,27 @@
+section{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 9;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.page-anchors{
+  display: flex;
+}
+
+button{
+  padding: 5px;
+  margin: 3px;
+}
+
+p{
+  padding: 3px;
+  margin: 2px;
+  cursor: pointer;
+}

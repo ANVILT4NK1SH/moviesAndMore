@@ -1,0 +1,44 @@
+<section>
+  <div class="page-btn-container">
+    <!-- Previous button, shown if not on page 1 -->
+    @if (currentPage() > 1) {
+      <button (click)="setCurrentPage(currentPage() - 1)" aria-label="Previous page">
+        ←
+      </button>
+    }
+    <!-- Next button, shown if not on page 500 -->
+    @if (currentPage() < totalPages()) {
+      <button (click)="setCurrentPage(currentPage() + 1)" aria-label="Next page">
+        →
+      </button>
+    }
+  </div>
+  <div class="page-anchors">
+
+    @if(currentPage() !== 1){
+      <p (click)="setCurrentPage(1)">first page</p>
+    }
+
+    @if(currentPage() > 10){
+      <p (click)="setCurrentPage(currentPage() - 10)">&lt;&lt;</p>
+    }
+    <!-- Dynamic page numbers, centered around currentPage -->
+    @for (page of pageRange(); track page) {
+      <p
+        (click)="setCurrentPage(page)"
+        [style.color]="currentPage() === page ? 'green' : 'whitesmoke'"
+        [attr.aria-label]="'Page ' + page"
+        [style.cursor]="currentPage() === page ? 'default' : 'pointer'"
+      >
+        {{ page }}
+      </p>
+    }
+    @if(currentPage() < totalPages() - 9){
+      <p (click)="setCurrentPage(currentPage() + 10)">>></p>
+    }
+
+    @if(currentPage() !== totalPages()){
+      <p (click)="setCurrentPage(totalPages())">last page</p>
+    }
+  </div>
+</section>

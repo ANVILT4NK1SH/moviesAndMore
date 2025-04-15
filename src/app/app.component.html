@@ -1,3 +1,7 @@
+
 <app-header />
 <app-dashboard />
-<router-outlet />
+@if(currentView() === "popular" || isSearching()) {
+  <app-footer />
+}
+

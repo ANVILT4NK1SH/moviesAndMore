@@ -1,0 +1,62 @@
+<div class="blackout">
+  <div class="details-container">
+    <div class="header-grid">
+      <h2 class="details-title">{{ movie().title }}</h2>
+      <p class="close-btn" (click)="closeBtnHandler()">X</p>
+    </div>
+    <div class="img-and-details">
+      <img
+        src="https://image.tmdb.org/t/p/w500{{ movie().poster_path }}"
+        alt=""
+      />
+      <div class="details">
+        <p>Release Date: {{ movie().release_date }}</p>
+        <p>User Rating: {{ movie().vote_average.toFixed(1) }} / 10</p>
+        <p>
+          {{ movie().overview }}
+        </p>
+        <button (click)="whereToViewBtnHandler()">Where to Watch</button>
+        <div class="review-container">
+          @if(isReviewed()){
+            @if (isReviewing) {
+          <textarea
+            name="review"
+            id="review"
+            [(ngModel)]="reviewInput"
+          ></textarea>
+          <div class="review-btn-container">
+            <button (click)="reviewFormToggleHandler()">Close Form</button>
+            <button (click)="submitClickHandler()">Submit</button>
+            <button class="danger-btn clear-btn" (click)="clearBtnHandler()">
+              Clear
+            </button>
+          </div>
+        }@else {
+          <h3>My Review:</h3>
+          <p>{{ review()?.text }}</p>
+          <div class="review-btn-container">
+          <button (click)="editBtnHandler()">Edit Review</button>
+          <button class="danger-btn" (click)="deleteBtnHandler()">Delete Review</button>
+          </div>
+        }
+          }@else { @if (isReviewing) {
+          <textarea
+            name="review"
+            id="review"
+            [(ngModel)]="reviewInput"
+          ></textarea>
+          <div class="review-btn-container">
+            <button (click)="reviewFormToggleHandler()">Close Form</button>
+            <button (click)="submitClickHandler()">Submit</button>
+            <button class="danger-btn clear-btn" (click)="clearBtnHandler()">
+              Clear
+            </button>
+          </div>
+          }@else {
+          <button (click)="reviewFormToggleHandler()">Write Review</button>
+          } }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

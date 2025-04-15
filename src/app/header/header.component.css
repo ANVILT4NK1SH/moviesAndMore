@@ -35,9 +35,10 @@ section {
 }
 
 h1{
-  color: rgb(255, 200, 98);
+  color: green;
   text-shadow: 2px 1px black;
   text-align: center;
+  font-size: xx-large;
 }
 
 input{
