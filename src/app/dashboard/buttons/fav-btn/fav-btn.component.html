@@ -1,0 +1,7 @@
+<button
+        (click)="toggleFavorite()"
+        [style.background-color]="isFav() ? 'red' : 'green'"
+        [attr.aria-label]="isFav() ? 'Remove from favorites' : 'Add to favorites'"
+      >
+        {{ isFav() ? '-Favorite' : '+Favorite' }}
+      </button>

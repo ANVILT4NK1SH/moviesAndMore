@@ -24,8 +24,19 @@ export class FooterComponent {
     const current = this.currentPage();
     const maxPages = this.totalPages();
     const range = 4; // Show x pages before and after
-    const start = Math.max(1, current - range);
-    const end = Math.min(maxPages, current + range);
+    let showStart = 0;
+    let showEnd = 0;
+
+    if(current < range +1){
+      showStart = range * 2 + 1
+    }else{showStart = current + range}
+
+    if(current > maxPages - range){
+      showEnd = maxPages - (range * 2)
+    }else{showEnd = current - range}
+    
+    const start = Math.max(1, showEnd);
+    const end = Math.min(maxPages, showStart);
     const pages = [];
     for (let i = start; i <= end; i++) {
       pages.push(i);

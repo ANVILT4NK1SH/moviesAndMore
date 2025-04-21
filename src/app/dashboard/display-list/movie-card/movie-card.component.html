@@ -18,17 +18,9 @@
     <!-- Movie title -->
     <p>{{ movie().title }}</p>
 
-    <!-- Favorites button with dynamic background and text -->
-    <span>
-      <button
-        (click)="toggleFavorite()"
-        [style.background-color]="isFav() ? 'red' : 'green'"
-        [attr.aria-label]="isFav() ? 'Remove from favorites' : 'Add to favorites'"
-      >
-        {{ isFav() ? '-Favorite' : '+Favorite' }}
-      </button>
-    </span>
 
-    <!-- Watchlist button (placeholder, not implemented) -->
+    <app-fav-btn [movie]="movie()" /> 
+    <app-watchlist-btn [movie]="movie()" />
+    
   </div>
 </div>

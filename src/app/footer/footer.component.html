@@ -2,29 +2,33 @@
   <div class="page-btn-container">
     <!-- Previous button, shown if not on page 1 -->
     @if (currentPage() > 1) {
-      <button (click)="setCurrentPage(currentPage() - 1)" aria-label="Previous page">
-        ←
-      </button>
+    <button
+      (click)="setCurrentPage(currentPage() - 1)"
+      aria-label="Previous page"
+    >
+      ←
+    </button>
     }
     <!-- Next button, shown if not on page 500 -->
     @if (currentPage() < totalPages()) {
-      <button (click)="setCurrentPage(currentPage() + 1)" aria-label="Next page">
-        →
-      </button>
+    <button (click)="setCurrentPage(currentPage() + 1)" aria-label="Next page">
+      →
+    </button>
     }
   </div>
   <div class="page-anchors">
-
     @if(currentPage() !== 1){
-      <p (click)="setCurrentPage(1)">first page</p>
-    }
-
-    @if(currentPage() > 10){
-      <p (click)="setCurrentPage(currentPage() - 10)">&lt;&lt;</p>
+    <p id="first-page" (click)="setCurrentPage(1)">1</p>
+    } @if(currentPage() > 10){
+    <p id="minus-ten" (click)="setCurrentPage(currentPage() - 10)">
+      {{ currentPage() - 10 }}
+    </p>
     }
     <!-- Dynamic page numbers, centered around currentPage -->
-    @for (page of pageRange(); track page) {
+    <div class="page-range">
+      @for (page of pageRange(); track page) {
       <p
+        class="current-page"
         (click)="setCurrentPage(page)"
         [style.color]="currentPage() === page ? 'green' : 'whitesmoke'"
         [attr.aria-label]="'Page ' + page"
@@ -32,13 +36,16 @@
       >
         {{ page }}
       </p>
-    }
+      }
+    </div>
     @if(currentPage() < totalPages() - 9){
-      <p (click)="setCurrentPage(currentPage() + 10)">>></p>
-    }
-
-    @if(currentPage() !== totalPages()){
-      <p (click)="setCurrentPage(totalPages())">last page</p>
+    <p id="plus-ten" (click)="setCurrentPage(currentPage() + 10)">
+      {{ currentPage() + 10 }}
+    </p>
+    } @if(currentPage() !== totalPages()){
+    <p id="last-page" (click)="setCurrentPage(totalPages())">
+      {{ totalPages() }}
+    </p>
     }
   </div>
 </section>

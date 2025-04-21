@@ -15,10 +15,14 @@
         <p>
           {{ movie().overview }}
         </p>
-        <button (click)="whereToViewBtnHandler()">Where to Watch</button>
+        <div class="btn-container">
+          <button (click)="whereToViewBtnHandler()">Where to Watch</button>
+          <app-fav-btn [movie]="movie()" />
+          <app-watchlist-btn [movie]="movie()" />
+        </div>
+
         <div class="review-container">
-          @if(isReviewed()){
-            @if (isReviewing) {
+          @if(isReviewed()){ @if (isReviewing) {
           <textarea
             name="review"
             id="review"
@@ -31,15 +35,16 @@
               Clear
             </button>
           </div>
-        }@else {
+          }@else {
           <h3>My Review:</h3>
           <p>{{ review()?.text }}</p>
           <div class="review-btn-container">
-          <button (click)="editBtnHandler()">Edit Review</button>
-          <button class="danger-btn" (click)="deleteBtnHandler()">Delete Review</button>
+            <button (click)="editBtnHandler()">Edit Review</button>
+            <button class="danger-btn" (click)="deleteBtnHandler()">
+              Delete Review
+            </button>
           </div>
-        }
-          }@else { @if (isReviewing) {
+          } }@else { @if (isReviewing) {
           <textarea
             name="review"
             id="review"
