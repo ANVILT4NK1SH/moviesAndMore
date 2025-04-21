@@ -1,0 +1,7 @@
+<button
+      (click)="toggleWatchlist()"
+      [style.background-color]="isInWatchlist() ? 'red' : 'green'"
+      [attr.aria-label]="isInWatchlist() ? 'Remove from watchlist' : 'Add to watchlist'"
+      >
+        {{isInWatchlist() ? '-Watchlist' : '+Watchlist'}}
+      </button>

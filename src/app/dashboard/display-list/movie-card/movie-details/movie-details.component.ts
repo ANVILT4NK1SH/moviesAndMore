@@ -11,10 +11,12 @@ import { Movie } from '../../../../shared/models/movie.model';
 import { ReviewService } from '../../../../shared/services/review.service';
 import { SharedModule } from '../../../../shared/modules/shared.module';
 import { Review } from '../../../../shared/models/review.model';
+import { FavBtnComponent } from "../../../buttons/fav-btn/fav-btn.component";
+import { WatchlistBtnComponent } from "../../../buttons/watchlist-btn/watchlist-btn.component";
 
 @Component({
   selector: 'app-movie-details',
-  imports: [SharedModule],
+  imports: [SharedModule, FavBtnComponent, WatchlistBtnComponent],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css',
 })

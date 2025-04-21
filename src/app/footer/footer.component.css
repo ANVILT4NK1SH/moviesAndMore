@@ -12,7 +12,24 @@ section{
 }
 
 .page-anchors{
-  display: flex;
+  display: grid;
+  width: 90%;
+  grid-template-columns: 10% 10% 400px 10% 10% ;
+  justify-content: center;
+  align-content: center;
+}
+
+.page-range{
+  display: grid;
+  grid-template-columns: repeat(9, 35px);
+  justify-self: center;
+  grid-column: 3;
+}
+
+.current-page{
+  font-weight: bold;
+  justify-self: center;
+  align-self: center;
 }
 
 button{
@@ -25,3 +42,24 @@ p{
   margin: 2px;
   cursor: pointer;
 }
+
+#minus-ten{
+  font-style: italic;
+  justify-self: center;
+}
+
+#plus-ten{
+  font-style: italic;
+  justify-self: center;
+}
+
+#first-page{
+  font-style: italic;
+  justify-self: end;
+}
+
+#last-page{
+  font-style: italic;
+  margin-left: 10px;
+}
+

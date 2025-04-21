@@ -2,6 +2,7 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { SharedModule } from '../../shared/modules/shared.module';
 import { MovieService } from '../../shared/services/movie.service';
 import { FavoritesService } from '../../shared/services/favorites.service';
+import { WatchlistService } from '../../shared/services/watchlist.service';
 
 @Component({
   selector: 'app-navigation',
@@ -16,6 +17,7 @@ export class NavigationComponent {
   // Inject services for movie data and favorites
   private movieService = inject(MovieService);
   private favService = inject(FavoritesService);
+  private watchlistService = inject(WatchlistService);
 
   currentView = this.movieService.currentView;
 
@@ -30,6 +32,9 @@ export class NavigationComponent {
       if (view === 'favorites') {
         const favorites = this.favService.getFavorites()();
         this.movieService.movies.set(favorites);
+      }if(view === 'watchlist'){
+        const watchlist = this.watchlistService.getWatchlist()();
+        this.movieService.movies.set(watchlist);
       }
     });
   }
